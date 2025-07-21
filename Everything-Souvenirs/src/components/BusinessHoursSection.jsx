@@ -1,9 +1,9 @@
-import React  from "react";
-import {businessHours} from "../libs/data.js";
-
+import React from "react";
+import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { businessHours } from "../libs/data.js";
 
 const BusinessHoursSection = () => {
-     return(
+     return (
          <>
               <section className="py-20 px-6 bg-slate-100">
                    <div className="max-w-6xl mx-auto">
@@ -24,42 +24,41 @@ const BusinessHoursSection = () => {
                                                 <span className={`font-semibold ${
                                                     schedule.open ? 'text-green-600' : 'text-slate-500'
                                                 }`}>
-                                                          {schedule.hours}
-                                                </span>
+                      {schedule.hours}
+                    </span>
                                            </div>
                                        ))}
                                   </div>
                              </div>
 
-                             <div
-                                 className="bg-gradient-to-br from-purple-600 to-indigo-600 text-white p-8 rounded-2xl">
+                             <div className="bg-gradient-to-br from-indigo-600 to-indigo-600 text-white p-8 rounded-2xl">
                                   <h3 className="text-3xl font-bold mb-6">Emergency Contact</h3>
-                                  <p className="text-purple-100 mb-6">
+                                  <p className="text-indigo-100 mb-6">
                                        For urgent matters that can't wait, use these emergency contact options:
                                   </p>
 
                                   <div className="space-y-4">
                                        <div className="flex items-center">
-                                            <div className="text-2xl mr-4">🚨</div>
+                                            <FaPhoneAlt className="text-2xl mr-4" />
                                             <div>
                                                  <p className="font-bold">Emergency Hotline</p>
-                                                 <p className="text-purple-200">+234 (0) 800 URGENT</p>
+                                                 <p className="text-indigo-200">+234 (0) 705 3531 269</p>
                                             </div>
                                        </div>
 
                                        <div className="flex items-center">
-                                            <div className="text-2xl mr-4">📧</div>
+                                            <FaEnvelope className="text-2xl mr-4" />
                                             <div>
                                                  <p className="font-bold">Priority Email</p>
-                                                 <p className="text-purple-200">urgent@company.com</p>
+                                                 <p className="text-indigo-200">urgent@company.com</p>
                                             </div>
                                        </div>
 
                                        <div className="flex items-center">
-                                            <div className="text-2xl mr-4">💬</div>
+                                            <FaWhatsapp className="text-2xl mr-4" />
                                             <div>
                                                  <p className="font-bold">WhatsApp</p>
-                                                 <p className="text-purple-200">+234 (0) 900 WHATSAPP</p>
+                                                 <p className="text-indigo-200">+234 (0) 705 3531 269</p>
                                             </div>
                                        </div>
                                   </div>
@@ -68,6 +67,7 @@ const BusinessHoursSection = () => {
                    </div>
               </section>
          </>
-     )
-}
+     );
+};
+
 export default BusinessHoursSection;

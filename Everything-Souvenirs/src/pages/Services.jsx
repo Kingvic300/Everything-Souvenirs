@@ -143,18 +143,15 @@ const Services = () => {
 
      return (
          <>
-              <Header />
-
-              {/* Hero Section */}
-              <div className="bg-gradient-to-br from-indigo-700 via-purple-700 to-purple-800 text-white py-20 px-6">
+              <div className="bg-gradient-to-br from-indigo-700 via-indigo-700 to-indigo-800 text-white py-20 px-6">
                    <div className="max-w-6xl mx-auto text-center">
                         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                              Our <span className="text-emerald-300">Services</span>
                         </h1>
-                        <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-purple-100 mb-8">
+                        <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-indigo-100 mb-8">
                              From custom branding to bulk orders, we provide comprehensive solutions for all your promotional merchandise needs. Let us help bring your brand to life.
                         </p>
-                        <button className="bg-emerald-400 hover:bg-emerald-500 text-purple-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
+                        <button className="bg-emerald-400 hover:bg-emerald-500 text-emerald-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
                              Get Started Today
                         </button>
                    </div>
@@ -181,7 +178,7 @@ const Services = () => {
                                            <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
                                                 {service.icon}
                                            </div>
-                                           <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition-colors">
+                                           <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors">
                                                 {service.title}
                                            </h3>
                                            <p className="text-slate-600 mb-6 leading-relaxed">
@@ -205,9 +202,9 @@ const Services = () => {
                                            )}
 
                                            <div className="mt-6">
-                    <span className="text-purple-600 font-medium group-hover:text-purple-700">
-                      {selectedService === service.id ? 'Click to collapse' : 'Click to learn more →'}
-                    </span>
+                                                <span className="text-indigo-600 font-medium group-hover:text-indigo-700">
+                                                     {selectedService === service.id ? 'Click to collapse' : 'Click to learn more →'}
+                                                </span>
                                            </div>
                                       </div>
                                   ))}
@@ -227,7 +224,7 @@ const Services = () => {
 
                              <div className="relative">
                                   {/* Process Timeline */}
-                                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple-200"></div>
+                                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-indigo-200"></div>
 
                                   {processSteps.map((step, index) => (
                                       <div key={step.step} className={`flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
@@ -236,7 +233,7 @@ const Services = () => {
                                                      <div className="flex items-center mb-4">
                                                           <div className="text-4xl mr-4">{step.icon}</div>
                                                           <div>
-                                                               <span className="text-purple-600 font-bold text-lg">Step {step.step}</span>
+                                                               <span className="text-indigo-600 font-bold text-lg">Step {step.step}</span>
                                                                <h3 className="text-2xl font-bold text-slate-900">{step.title}</h3>
                                                           </div>
                                                      </div>
@@ -245,7 +242,7 @@ const Services = () => {
                                            </div>
 
                                            {/* Timeline dot */}
-                                           <div className="hidden md:flex w-12 h-12 bg-purple-600 rounded-full items-center justify-center text-white font-bold text-lg z-10">
+                                           <div className="hidden md:flex w-12 h-12 bg-indigo-600 rounded-full items-center justify-center text-white font-bold text-lg z-10">
                                                 {step.step}
                                            </div>
 
@@ -257,11 +254,11 @@ const Services = () => {
                    </section>
 
                    {/* Why Choose Us */}
-                   <section className="py-20 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+                   <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-indigo-600 text-white">
                         <div className="max-w-6xl mx-auto">
                              <div className="text-center mb-16">
                                   <h2 className="text-4xl md:text-5xl font-bold mb-6">Why Choose Us?</h2>
-                                  <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+                                  <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
                                        We combine expertise, quality, and exceptional service to deliver outstanding results
                                   </p>
                              </div>
@@ -276,7 +273,7 @@ const Services = () => {
                                       <div key={index} className="text-center bg-white/10 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300">
                                            <div className="text-5xl mb-4">{stat.icon}</div>
                                            <div className="text-4xl font-bold mb-2 text-yellow-300">{stat.number}</div>
-                                           <div className="text-purple-100 font-medium">{stat.label}</div>
+                                           <div className="text-indigo-100 font-medium">{stat.label}</div>
                                       </div>
                                   ))}
                              </div>
@@ -299,7 +296,7 @@ const Services = () => {
                                            <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                                                 {industry.icon}
                                            </div>
-                                           <h3 className="font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                           <h3 className="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                                                 {industry.name}
                                            </h3>
                                            <p className="text-sm text-slate-600">{industry.description}</p>
@@ -352,11 +349,11 @@ const Services = () => {
                    </section>
 
                    {/* Contact Form / CTA */}
-                   <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+                   <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-indigo-600 text-white">
                         <div className="max-w-4xl mx-auto">
                              <div className="text-center mb-12">
                                   <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
-                                  <p className="text-xl text-purple-100 mb-8">
+                                  <p className="text-xl text-indigo-100 mb-8">
                                        Let's discuss your project and create something amazing together
                                   </p>
                              </div>
@@ -365,12 +362,13 @@ const Services = () => {
                                  <div className="bg-white/10 rounded-2xl p-12 text-center">
                                       <div className="text-6xl mb-6">✅</div>
                                       <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
-                                      <p className="text-purple-100 text-lg">
+                                      <p className="text-indigo-100 text-lg">
                                            We've received your inquiry and will get back to you within 24 hours.
                                       </p>
                                  </div>
                              ) : (
-                                 <form onSubmit={handleFormSubmit} className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                                 <form onSubmit={handleFormSubmit}
+                                       className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
                                       <div className="grid md:grid-cols-2 gap-6 mb-6">
                                            <div>
                                                 <label className="block text-sm font-medium mb-2">Full Name</label>
@@ -379,7 +377,7 @@ const Services = () => {
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                                     placeholder="Your full name"
                                                     required
                                                 />
@@ -391,7 +389,7 @@ const Services = () => {
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                                     placeholder="your@email.com"
                                                     required
                                                 />
@@ -406,27 +404,47 @@ const Services = () => {
                                                     name="company"
                                                     value={formData.company}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                                     placeholder="Your company name"
                                                 />
                                            </div>
-                                           <div>
-                                                <label className="block text-sm font-medium mb-2">Service Interested In</label>
+                                           <div className="relative w-full max-w-md mx-auto">
+                                                <label htmlFor="service"
+                                                       className="block mb-2 text-sm font-medium text-white">
+                                                     Choose a service
+                                                </label>
+
                                                 <select
+                                                    id="service"
                                                     name="service"
                                                     value={formData.service}
                                                     onChange={handleInputChange}
-                                                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                                     required
+                                                    className="w-full appearance-none px-4 py-3 rounded-lg bg-black/10 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 hover:bg-black/20 transition duration-200 pr-10"
                                                 >
-                                                     <option value="">Select a service</option>
-                                                     <option value="custom-branding">Custom Branding & Design</option>
-                                                     <option value="bulk-orders">Bulk Order Management</option>
-                                                     <option value="product-customization">Product Customization</option>
-                                                     <option value="design-consultation">Design Consultation</option>
-                                                     <option value="other">Other</option>
+                                                     <option value="" className="bg-white text-black">Select a service</option>
+                                                     <option value="custom-branding" className="bg-white text-black">Custom Branding & Design</option>
+                                                     <option value="bulk-orders" className="bg-white text-black">Bulk Order Management</option>
+                                                     <option value="product-customization" className="bg-white text-black">Product Customization</option>
+                                                     <option value="design-consultation" className="bg-white text-black">Design Consultation</option>
+                                                     <option value="other" className="bg-white text-black">Other</option>
+
                                                 </select>
+                                                <div
+                                                    className="pointer-events-none absolute right-3 top-[72%] -translate-y-1/2 text-white">
+                                                     <svg
+                                                         className="w-4 h-4"
+                                                         fill="none"
+                                                         stroke="currentColor"
+                                                         strokeWidth="2"
+                                                         viewBox="0 0 24 24"
+                                                     >
+                                                          <path strokeLinecap="round" strokeLinejoin="round"
+                                                                d="M19 9l-7 7-7-7"/>
+                                                     </svg>
+                                                </div>
                                            </div>
+
                                       </div>
 
                                       <div className="mb-6">
@@ -436,7 +454,7 @@ const Services = () => {
                                                value={formData.message}
                                                onChange={handleInputChange}
                                                rows="4"
-                                               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                                placeholder="Tell us about your project, timeline, and any specific requirements..."
                                                required
                                            ></textarea>
@@ -445,7 +463,7 @@ const Services = () => {
                                       <div className="text-center">
                                            <button
                                                type="submit"
-                                               className="bg-yellow-400 hover:bg-yellow-500 text-purple-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105"
+                                               className="block bg-emerald-500 hover:bg-emerald-600 text-indigo-900 text-center px-6 py-3 rounded-lg font-bold transition-all duration-200"
                                            >
                                                 Send Inquiry
                                            </button>
@@ -455,8 +473,6 @@ const Services = () => {
                         </div>
                    </section>
               </div>
-
-              <Footer />
          </>
      );
 };

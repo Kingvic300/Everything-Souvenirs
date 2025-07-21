@@ -1,0 +1,5 @@
+/* Minimal reset to remove top spacing only */
+html, body {
+    margin: 0;
+    padding: 0;
+}

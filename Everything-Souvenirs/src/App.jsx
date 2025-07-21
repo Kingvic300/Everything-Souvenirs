@@ -8,8 +8,10 @@ function App() {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} />
-      <RouterProvider router={router} />
+         <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100 via-white to-pink-100">
+              <ToastContainer position="top-right" autoClose={3000} />
+              <RouterProvider router={router} />
+         </div>
     </>
   )
 }

@@ -1,171 +1,116 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
+import { FaQuoteLeft, FaPalette, FaShippingFast, FaAward, FaStar, FaHeart, FaEye } from 'react-icons/fa';
+import {categories, reviews} from "../libs/data.js";
+import Tshirt from "../assets/T-shirt.jpg"
+import powerBank from "../assets/powerBank.jpg"
+import notebook from '../assets/notebook.jpg';
+import mug from '../assets/mug.jpg';
+import waterBottle from '../assets/water-bottle.jpg';
+import tote from '../assets/tote.jpg';
+import cap from "../assets/cap.avif"
+
+const flashLink = "https://images.unsplash.com/photo-1642084962115-61172e7f8b40?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8VVNCJTIwRmxhc2glMjBEcml2ZXxlbnwwfHwwfHx8MA%3D%3D"
+const keyChainLink = "https://www.brandedgifts.ng/wp-content/uploads/2023/04/branded-metallic-keyholder-with-opener-400x400.jpg"
 
 const products = [
      {
           id: 1,
           name: 'Branded T-Shirt',
-          price: '₦7,500',
-          image: 'https://via.placeholder.com/300x200?text=T-Shirt',
+          basePrice: '₦7,500',
+          image: Tshirt,
           category: 'Apparel',
           description: 'Premium cotton t-shirt with custom branding',
+          customizationOptions: ['Screen Printing', 'Embroidery', 'Heat Transfer'],
+          minOrder: 50,
+          leadTime: '7-10 days'
      },
      {
           id: 2,
           name: 'Custom Mug',
-          price: '₦3,000',
-          image: 'https://via.placeholder.com/300x200?text=Mug',
+          basePrice: '₦3,000',
+          image: mug,
           category: 'Drinkware',
           description: 'Ceramic mug perfect for office branding',
+          customizationOptions: ['Logo Printing', 'Color Customization', 'Text Engraving'],
+          minOrder: 25,
+          leadTime: '5-7 days'
      },
      {
           id: 3,
           name: 'Key Holder',
-          price: '₦1,500',
-          image: 'https://via.placeholder.com/300x200?text=Key+Holder',
+          basePrice: '₦1,500',
+          image: keyChainLink,
           category: 'Accessories',
           description: 'Durable key holder with logo engraving',
+          customizationOptions: ['Laser Engraving', 'Color Options', 'Shape Customization'],
+          minOrder: 100,
+          leadTime: '3-5 days'
      },
      {
           id: 4,
           name: 'Custom Cap',
-          price: '₦5,000',
-          image: 'https://via.placeholder.com/300x200?text=Cap',
+          basePrice: '₦5,000',
+          image: cap,
           category: 'Apparel',
           description: 'Adjustable cap with embroidered logo',
+          customizationOptions: ['Embroidery', 'Patch Application', 'Color Selection'],
+          minOrder: 30,
+          leadTime: '7-10 days'
      },
      {
           id: 5,
           name: 'Branded Notebook',
-          price: '₦4,000',
-          image: 'https://via.placeholder.com/300x200?text=Notebook',
+          basePrice: '₦4,000',
+          image: notebook,
           category: 'Office',
           description: 'Professional notebook for corporate gifts',
+          customizationOptions: ['Cover Printing', 'Foil Stamping', 'Custom Pages'],
+          minOrder: 50,
+          leadTime: '5-7 days'
      },
      {
           id: 6,
           name: 'USB Flash Drive',
-          price: '₦6,000',
-          image: 'https://via.placeholder.com/300x200?text=USB',
+          basePrice: '₦6,000',
+          image: flashLink,
           category: 'Tech',
           description: '16GB USB drive with custom logo',
+          customizationOptions: ['Laser Engraving', 'Color Options', 'Custom Shape'],
+          minOrder: 25,
+          leadTime: '7-10 days'
      },
      {
           id: 7,
           name: 'Tote Bag',
-          price: '₦8,000',
-          image: 'https://via.placeholder.com/300x200?text=Tote+Bag',
+          basePrice: '₦8,000',
+          image: tote,
           category: 'Bags',
-          descriptionOOT: 'Bag',
           description: 'Eco-friendly tote bag with custom printing',
+          customizationOptions: ['Screen Printing', 'Heat Transfer', 'Embroidery'],
+          minOrder: 50,
+          leadTime: '7-10 days'
      },
      {
           id: 8,
           name: 'Water Bottle',
-          price: '₦5,500',
-          image: 'https://via.placeholder.com/300x200?text=Water+Bottle',
+          basePrice: '₦5,500',
+          image: waterBottle,
           category: 'Drinkware',
           description: 'Stainless steel water bottle with logo',
+          customizationOptions: ['Laser Engraving', 'Color Options', 'Custom Labels'],
+          minOrder: 25,
+          leadTime: '5-7 days'
      },
      {
           id: 9,
           name: 'Power Bank',
-          price: '₦12,000',
-          image: 'https://via.placeholder.com/300x200?text=Power+Bank',
+          basePrice: '₦12,000',
+          image: powerBank,
           category: 'Tech',
           description: 'High-capacity power bank with branding',
-     },
-     {
-          id: 10,
-          name: 'Lanyard',
-          price: '₦2,500',
-          image: 'https://via.placeholder.com/300x200?text=Lanyard',
-          category: 'Accessories',
-          description: 'Custom lanyard with logo for events',
-     },
-     {
-          id: 11,
-          name: 'Branded Hoodie',
-          price: '₦15,000',
-          image: 'https://via.placeholder.com/300x200?text=Hoodie',
-          category: 'Apparel',
-          description: 'Cozy hoodie with embroidered logo',
-     },
-     {
-          id: 12,
-          name: 'Desk Organizer',
-          price: '₦10,000',
-          image: 'https://via.placeholder.com/300x200?text=Desk+Organizer',
-          category: 'Office',
-          description: 'Stylish desk organizer with custom branding',
-     },
-];
-
-const categories = [
-     { name: 'Apparel', icon: '👕', count: 15, description: 'T-shirts, caps, and clothing' },
-     { name: 'Drinkware', icon: '☕', count: 10, description: 'Mugs, bottles, and tumblers' },
-     { name: 'Tech', icon: '💻', count: 18, description: 'USB drives, power banks, accessories' },
-     { name: 'Office', icon: '📝', count: 22, description: 'Notebooks, pens, desk accessories' },
-     { name: 'Bags', icon: '🎒', count: 12, description: 'Tote bags, backpacks, pouches' },
-     { name: 'Accessories', icon: '🔑', count: 20, description: 'Keychains, lanyards, badges' },
-];
-
-const reviews = [
-     {
-          id: 1,
-          name: 'Sarah Johnson',
-          company: 'TechCorp Ltd',
-          rating: 5,
-          text: 'Amazing quality branded merchandise! Our employees love the custom t-shirts and mugs. Fast delivery and excellent customer service.',
-          avatar: 'https://via.placeholder.com/60?text=SJ',
-          date: 'Jul 17, 2025',
-     },
-     {
-          id: 2,
-          name: 'Michael Chen',
-          company: 'StartupHub',
-          rating: 5,
-          text: 'Perfect for our company event giveaways. The USB drives were a huge hit with attendees. Will definitely order again!',
-          avatar: 'https://via.placeholder.com/60?text=MC',
-          date: 'Jul 10, 2025',
-     },
-     {
-          id: 3,
-          name: 'Emily Rodriguez',
-          company: 'Creative Agency',
-          rating: 4,
-          text: 'Great selection of products and customization options. The tote bags turned out exactly as we envisioned for our brand.',
-          avatar: 'https://via.placeholder.com/60?text=ER',
-          date: 'Jul 12, 2025',
-     },
-     {
-          id: 4,
-          name: 'David Okeke',
-          company: 'EventMasters',
-          rating: 5,
-          text: 'The branded caps were a hit at our conference. High-quality and beautifully designed!',
-          avatar: 'https://via.placeholder.com/60?text=DO',
-          date: 'Jul 15, 2025',
-     },
-     {
-          id: 5,
-          name: 'Aisha Bello',
-          company: 'WeddingPlanners',
-          rating: 4,
-          text: 'The water bottles made perfect wedding favors. The customization process was seamless!',
-          avatar: 'https://via.placeholder.com/60?text=AB',
-          date: 'Jul 11, 2025',
-     },
-     {
-          id: 6,
-          name: 'Chidi Nwosu',
-          company: 'MarketPros',
-          rating: 5,
-          text: 'Outstanding service and quality. The notebooks elevated our corporate gifts!',
-          avatar: 'https://via.placeholder.com/60?text=CN',
-          date: 'Jul 9, 2025',
+          customizationOptions: ['Logo Printing', 'Color Selection', 'Custom Packaging'],
+          minOrder: 20,
+          leadTime: '10-14 days'
      },
 ];
 
@@ -187,49 +132,80 @@ const Shop = () => {
           setTimeout(() => setNewsletterSubmitted(false), 3000);
      };
 
+     const handleRequestQuote = (product) => {
+          // Navigate to quote page with product details
+          console.log('Requesting quote for:', product.name);
+     };
+
+     const handleCustomizeOrder = (product) => {
+          // Navigate to customization page
+          console.log('Customizing order for:', product.name);
+     };
+
      return (
          <>
-              <Header />
-
               {/* Hero Section */}
-              <div className="bg-gradient-to-br from-indigo-700 via-indigo-800 to-indigo-900 text-white py-16 px-6">
+              <div className="bg-gradient-to-br from-indigo-700 via-indigo-800 to-indigo-900 text-white py-20 px-6">
                    <div className="max-w-6xl mx-auto text-center">
-                        <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-                             Welcome to Our <span className="text-emerald-300">Shop</span>
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                             Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-emerald-400">Branded Gifts</span>
                         </h1>
-                        <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-blue-100">
-                             Browse our premium branded gift items. Perfect for giveaways, souvenirs, and loyalty rewards.
+                        <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-indigo-100 mb-8">
+                             Transform your brand into memorable experiences with our custom-designed promotional merchandise. Perfect for corporate gifts, events, and brand building.
                         </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                             <button className="bg-emerald-500 hover:bg-emerald-700 text-indigo-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
+                                  Request Custom Quote
+                             </button>
+                             <button className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200">
+                                  {/* Updated hover:text-indigo-800 to hover:text-indigo-600 */}
+                                  View Our Process
+                             </button>
+                        </div>
+                        <div className="flex justify-center items-center gap-8 text-indigo-200">
+                             <div className="flex items-center gap-2">
+                                  <FaShippingFast className="text-indigo-400" />
+                                  <span>Fast Turnaround</span>
+                             </div>
+                             <div className="flex items-center gap-2">
+                                  <FaAward className="text-indigo-400" />
+                                  <span>Premium Quality</span>
+                             </div>
+                             <div className="flex items-center gap-2">
+                                  <FaPalette className="text-indigo-400" />
+                                  <span>Full Customization</span>
+                             </div>
+                        </div>
                    </div>
               </div>
 
-              <div className="bg-slate-50">
+              <div className="bg-gradient-to-br from-slate-50 to-slate-100">
                    {/* Categories */}
-                   <section className="py-16 px-6">
+                   <section className="py-20 px-6">
                         <div className="max-w-7xl mx-auto">
-                             <div className="text-center mb-12">
-                                  <h2 className="text-4xl font-bold text-slate-900 mb-4">Shop by Category</h2>
-                                  <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                                       Find exactly what you need from our organized product categories
+                             <div className="text-center mb-16">
+                                  <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Browse Gift Categories</h2>
+                                  <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                                       Discover the perfect branded gifts for your business needs from our curated collection
                                   </p>
                              </div>
 
-                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
+                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
                                   {categories.map((category) => (
                                       <div
                                           key={category.name}
                                           onClick={() => setSelectedCategory(category.name)}
-                                          className={`group cursor-pointer bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2 ${
+                                          className={`group cursor-pointer bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border-2 ${
                                               selectedCategory === category.name
-                                                  ? 'border-blue-500 bg-blue-50'
-                                                  : 'border-slate-200 hover:border-blue-300'
+                                                  ? 'border-indigo-500 bg-indigo-50 shadow-indigo-200'
+                                                  : 'border-slate-200 hover:border-indigo-300'
                                           }`}
                                       >
                                            <div className="text-center">
-                                                <div className="text-4xl mb-3">{category.icon}</div>
-                                                <h3 className="font-bold text-slate-900 mb-1">{category.name}</h3>
-                                                <p className="text-sm text-slate-600 mb-2">{category.description}</p>
-                                                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">
+                                                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                                                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">{category.name}</h3>
+                                                <p className="text-sm text-slate-600 mb-3">{category.description}</p>
+                                                <span className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold">
                                                      {category.count} items
                                                 </span>
                                            </div>
@@ -240,10 +216,10 @@ const Shop = () => {
                              <div className="text-center">
                                   <button
                                       onClick={() => setSelectedCategory('All')}
-                                      className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                      className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
                                           selectedCategory === 'All'
-                                              ? 'bg-blue-600 text-white'
-                                              : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+                                              ? 'bg-indigo-500 text-white shadow-lg'
+                                              : 'bg-white text-indigo-600 border-2 border-indigo-500 hover:bg-indigo-50'
                                       }`}
                                   >
                                        Show All Products
@@ -252,50 +228,110 @@ const Shop = () => {
                         </div>
                    </section>
 
-                   {/* Promo Banner */}
-                   <section className="bg-emerald-400 text-gray-800 py-4 px-6 text-center">
-                        <p className="text-lg font-semibold">
-                             Limited Offer: Get 20% off on orders over ₦100,000! Use code <span className="font-bold">BRAND20</span>
-                        </p>
+                   {/* Value Proposition Banner */}
+                   <section className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-6 px-6">
+                        <div className="max-w-6xl mx-auto text-center">
+                             <p className="text-lg md:text-xl font-semibold">
+                                  🎯 <strong>Custom Branding Specialists</strong> • Minimum Order Quantities Apply • Free Design Consultation •
+                                  <span className="font-bold ml-2">Get Your Quote Today!</span>
+                             </p>
+                        </div>
                    </section>
 
                    {/* Products Grid */}
-                   <section className="py-16 px-6">
+                   <section className="py-20 px-6">
                         <div className="max-w-7xl mx-auto">
-                             <div className="text-center mb-12">
-                                  <h2 className="text-4xl font-bold text-slate-900 mb-4">
-                                       {selectedCategory === 'All' ? 'All Products' : `${selectedCategory} Products`}
+                             <div className="text-center mb-16">
+                                  <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                                       {selectedCategory === 'All' ? 'All Branded Gifts' : `${selectedCategory} Collection`}
                                   </h2>
-                                  <p className="text-xl text-slate-600">{filteredProducts.length} products available</p>
+                                  <p className="text-xl text-slate-600">{filteredProducts.length} customizable products available</p>
                              </div>
 
                              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                                   {filteredProducts.map((product) => (
                                       <div
                                           key={product.id}
-                                          className="group bg-white shadow-sm hover:shadow-xl rounded-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2 border border-slate-200"
+                                          className="group bg-white shadow-lg hover:shadow-2xl rounded-3xl overflow-hidden transition-all duration-300 transform hover:-translate-y-3 border border-slate-200"
                                       >
                                            <div className="relative overflow-hidden">
                                                 <img
                                                     src={product.image}
                                                     alt={product.name}
-                                                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                                                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                                                 />
                                                 <div className="absolute top-4 right-4">
-                                                     <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold">
+                                                     <span className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold">
                                                           {product.category}
                                                      </span>
                                                 </div>
+                                                <div className="absolute top-4 left-4">
+                                                     <span className="text-xs bg-white/90 text-slate-700 px-3 py-1 rounded-full font-bold">
+                                                          Min: {product.minOrder}
+
+                                                     </span>
+                                                </div>
+                                                <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                     {/* Updated overlay gradient from from-black/50 to from-indigo-900/50 */}
+                                                     <div className="absolute bottom-4 left-4 right-4">
+                                                          <div className="flex gap-2">
+                                                               <button className="flex-1 bg-white/20 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-white/30 transition-all duration-200">
+                                                                    <FaEye className="inline mr-1" /> Preview
+                                                               </button>
+                                                               <button className="flex-1 bg-indigo-500/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-600/80 transition-all duration-200">
+                                                                    <FaHeart className="inline mr-1" /> Save
+                                                               </button>
+                                                          </div>
+                                                     </div>
+                                                </div>
                                            </div>
                                            <div className="p-6">
-                                                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                                                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
                                                      {product.name}
                                                 </h3>
-                                                <p className="text-slate-600 mb-3 text-sm">{product.description}</p>
-                                                <div className="flex items-center justify-between">
-                                                     <span className="text-2xl font-bold text-blue-600">{product.price}</span>
-                                                     <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-200 hover:shadow-lg transform hover:scale-105">
-                                                          Add to Cart
+                                                <p className="text-slate-600 mb-4 text-sm leading-relaxed">{product.description}</p>
+
+                                                <div className="mb-4">
+                                                     <p className="text-xs text-slate-500 mb-2">Customization Options:</p>
+                                                     <div className="flex flex-wrap gap-1">
+                                                          {product.customizationOptions.slice(0, 2).map((option, index) => (
+                                                              <span key={index} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full">
+                                                                   {option}
+                                                              </span>
+                                                          ))}
+                                                          {product.customizationOptions.length > 2 && (
+                                                              <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full">
+                                                                   +{product.customizationOptions.length - 2} more
+                                                              </span>
+                                                          )}
+                                                     </div>
+                                                </div>
+
+                                                <div className="flex items-center justify-between mb-4">
+                                                     <div>
+                                                          <span className="text-sm text-slate-500">Starting from</span>
+                                                          <div className="text-2xl font-bold text-indigo-600">{product.basePrice}</div>
+                                                     </div>
+                                                     <div className="text-right">
+                                                          <span className="text-xs text-slate-500">Lead Time</span>
+                                                          <div className="text-sm font-semibold text-slate-700">{product.leadTime}</div>
+                                                     </div>
+                                                </div>
+
+                                                <div className="space-y-3">
+                                                     <button
+                                                         onClick={() => handleRequestQuote(product)}
+                                                         className="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-4 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                                     >
+                                                          <FaQuoteLeft className="inline mr-2" />
+                                                          Request Quote
+                                                     </button>
+                                                     <button
+                                                         onClick={() => handleCustomizeOrder(product)}
+                                                         className="w-full border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 px-4 py-3 rounded-xl font-bold transition-all duration-300"
+                                                     >
+                                                          <FaPalette className="inline mr-2" />
+                                                          Customize & Order
                                                      </button>
                                                 </div>
                                            </div>
@@ -305,15 +341,72 @@ const Shop = () => {
                         </div>
                    </section>
 
-                   {/* Second Promo */}
-                   <section className="bg-blue-600 text-white py-4 px-6 text-center">
-                        <p className="text-lg font-semibold">Free Shipping on Orders Over ₦50,000! Shop Now and Save!</p>
+                   {/* Customer Reviews */}
+
+                   <section className="py-20 px-6 bg-white">
+                        <div className="max-w-7xl mx-auto">
+                             {/* Section Header */}
+                             <div className="text-center mb-16">
+                                  <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                                       What Our Clients Say
+                                  </h2>
+                                  <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                                       Trusted by hundreds of businesses for their branded gift needs
+                                  </p>
+                             </div>
+
+                             {/* Reviews Grid */}
+                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                  {reviews.map((review) => (
+                                      <div
+                                          key={review.id}
+                                          className="bg-slate-50 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                                      >
+                                           {/* Name & Company */}
+                                           <div className="mb-4">
+                                                <h4 className="font-bold text-slate-900 text-lg">{review.name}</h4>
+                                                <p className="text-sm text-slate-600">{review.company}</p>
+                                           </div>
+
+                                           {/* Star Rating */}
+                                           <div className="flex items-center mb-4">
+                                                {[...Array(review.rating)].map((_, i) => (
+                                                    <FaStar key={i} className="text-indigo-400" />
+                                                ))}
+                                           </div>
+
+                                           {/* Review Text */}
+                                           <p className="text-slate-700 leading-relaxed mb-4">"{review.text}"</p>
+
+                                           {/* Date */}
+                                           <p className="text-xs text-slate-500">{review.date}</p>
+                                      </div>
+                                  ))}
+                             </div>
+                        </div>
+                   </section>
+
+
+                   {/* Call to Action */}
+                   <section className="bg-gradient-to-br from-indigo-700 via-indigo-800 to-indigo-900 text-white py-20 px-6">
+                        <div className="max-w-4xl mx-auto text-center">
+                             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Elevate Your Brand?</h2>
+                             <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+                                  Let's create memorable branded gifts that leave a lasting impression on your clients and employees.
+                             </p>
+                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                  <button className="bg-emerald-500 hover:bg-emerald-700 text-indigo-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
+                                       Get Custom Quote
+                                  </button>
+                                  <button className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200">
+                                       Schedule Consultation
+                                  </button>
+                             </div>
+                        </div>
                    </section>
               </div>
-
-              <Footer />
          </>
      );
 };
 
-     export default Shop;
+export default Shop;

@@ -105,7 +105,7 @@ const ContactFormSection = () => {
                                                onChange={handleInputChange}
                                                className={`w-full px-4 py-3 rounded-lg border ${
                                                    formErrors.name ? 'border-red-500 bg-red-50' : 'border-slate-300 bg-white'
-                                               } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                                               } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                                                placeholder="Your full name"
                                            />
                                            {formErrors.name && (
@@ -124,7 +124,7 @@ const ContactFormSection = () => {
                                                onChange={handleInputChange}
                                                className={`w-full px-4 py-3 rounded-lg border ${
                                                    formErrors.email ? 'border-red-500 bg-red-50' : 'border-slate-300 bg-white'
-                                               } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                                               } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                                                placeholder="your@email.com"
                                            />
                                            {formErrors.email && (
@@ -143,7 +143,7 @@ const ContactFormSection = () => {
                                                name="phone"
                                                value={formData.phone}
                                                onChange={handleInputChange}
-                                               className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                                               className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                                                placeholder="+234 (0) 123 456 7890"
                                            />
                                       </div>
@@ -156,7 +156,7 @@ const ContactFormSection = () => {
                                                name="service"
                                                value={formData.service}
                                                onChange={handleInputChange}
-                                               className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                                               className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                                            >
                                                 <option value="">Select a service</option>
                                                 <option value="custom-branding">Custom Branding & Design</option>
@@ -179,7 +179,7 @@ const ContactFormSection = () => {
                                           onChange={handleInputChange}
                                           className={`w-full px-4 py-3 rounded-lg border ${
                                               formErrors.subject ? 'border-red-500 bg-red-50' : 'border-slate-300 bg-white'
-                                          } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200`}
+                                          } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200`}
                                           placeholder="Brief subject of your inquiry"
                                       />
                                       {formErrors.subject && (
@@ -198,7 +198,7 @@ const ContactFormSection = () => {
                                           rows="6"
                                           className={`w-full px-4 py-3 rounded-lg border ${
                                               formErrors.message ? 'border-red-500 bg-red-50' : 'border-slate-300 bg-white'
-                                          } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none`}
+                                          } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none`}
                                           placeholder="Please provide details about your project, timeline, and any specific requirements..."
                                       ></textarea>
                                       {formErrors.message && (
@@ -209,7 +209,7 @@ const ContactFormSection = () => {
                                  <div className="text-center">
                                       <button
                                           type="submit"
-                                          className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-12 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105"
+                                          className="bg-gradient-to-r from-indigo-600 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white px-12 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105"
                                       >
                                            Send Message
                                       </button>

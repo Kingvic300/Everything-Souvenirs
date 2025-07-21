@@ -33,8 +33,6 @@ const ProductDetail = () => {
 
      return (
          <>
-              <Header />
-
               <div className="bg-slate-50 min-h-screen">
                    {/* Breadcrumb */}
                    <div className="bg-white border-b border-slate-200">
@@ -458,8 +456,6 @@ const ProductDetail = () => {
                         </div>
                    </section>
               </div>
-
-              <Footer />
          </>
      );
 };
