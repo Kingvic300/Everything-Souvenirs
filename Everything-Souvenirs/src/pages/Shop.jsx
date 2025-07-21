@@ -16,7 +16,7 @@ const products = [
      {
           id: 1,
           name: 'Branded T-Shirt',
-          basePrice: '₦7,500',
+          basePrice: '₦3,500',
           image: Tshirt,
           category: 'Apparel',
           description: 'Premium cotton t-shirt with custom branding',
@@ -158,7 +158,6 @@ const Shop = () => {
                                   Request Custom Quote
                              </button>
                              <button className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200">
-                                  {/* Updated hover:text-indigo-800 to hover:text-indigo-600 */}
                                   View Our Process
                              </button>
                         </div>
