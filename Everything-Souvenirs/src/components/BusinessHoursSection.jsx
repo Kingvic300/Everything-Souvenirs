@@ -24,8 +24,8 @@ const BusinessHoursSection = () => {
                                                 <span className={`font-semibold ${
                                                     schedule.open ? 'text-green-600' : 'text-slate-500'
                                                 }`}>
-                      {schedule.hours}
-                    </span>
+                                                  {schedule.hours}
+                                                  </span>
                                            </div>
                                        ))}
                                   </div>

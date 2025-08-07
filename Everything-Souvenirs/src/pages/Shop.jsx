@@ -307,10 +307,6 @@ const Shop = () => {
                                                 </div>
 
                                                 <div className="flex items-center justify-between mb-4">
-                                                     <div>
-                                                          <span className="text-sm text-slate-500">Starting from</span>
-                                                          <div className="text-2xl font-bold text-indigo-600">{product.basePrice}</div>
-                                                     </div>
                                                      <div className="text-right">
                                                           <span className="text-xs text-slate-500">Lead Time</span>
                                                           <div className="text-sm font-semibold text-slate-700">{product.leadTime}</div>

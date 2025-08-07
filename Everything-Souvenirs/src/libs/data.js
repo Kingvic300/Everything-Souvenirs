@@ -129,7 +129,7 @@ export const mapOptions = {
 export const socialLinks = [
      { name: 'Facebook', href: 'https://facebook.com', icon: FaFacebook, color: 'text-blue-600' },
      { name: 'Twitter', href: 'https://twitter.com', icon: FaTwitter, color: 'text-sky-500' },
-     { name: 'Instagram', href: 'https://instagram.com', icon: FaInstagram, color: 'text-pink-500' },
+     { name: 'Instagram', href: 'https://www.instagram.com/everythingsouvenirsandgifts?igsh=MW8zbmU3NWJjNWpmZQ==', icon: FaInstagram, color: 'text-pink-500' },
      { name: 'LinkedIn', href: 'https://linkedin.com', icon: FaLinkedin, color: 'text-blue-700' },
 ];
 export const categories = [

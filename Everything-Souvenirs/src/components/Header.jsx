@@ -14,13 +14,7 @@ const Header = () => {
      ];
 
      return (
-         <header className="bg-white shadow-md sticky top-0 z-50">
-              {/* Promo Bar */}
-              <div className="bg-indigo-600 text-white text-center py-2 px-4">
-                   <p className="text-sm font-medium">
-                        🎉 Special Offer: 20% off all custom gift sets! Use code: <span className="font-bold">GIFT20</span>
-                   </p>
-              </div>
+         <header className="bg-white shadow-md sticky top-0 z-50">          
 
               {/* Main Header */}
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,8 +27,8 @@ const Header = () => {
                                   </svg>
                              </div>
                              <span className="text-xl font-bold text-indigo-700 group-hover:text-indigo-800 transition-colors duration-200">
-              Everything Souvenirs
-            </span>
+                                   Everything Souvenirs
+                                   </span>
                         </Link>
 
                         {/* Desktop Nav */}

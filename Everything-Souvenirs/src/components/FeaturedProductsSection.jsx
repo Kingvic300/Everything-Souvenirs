@@ -27,8 +27,8 @@ const FeaturedProductsSection = () => {
                                                className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                       </div>
                                       <div className="p-6">
-                                           <h3 className="text-xl font-bold text-indigo-700 mb-2 group-hover:text-indigo-800 transition-colors">{product.name}</h3>
-                                           <p className="text-2xl font-bold text-slate-900 mb-2">{product.price}</p>
+                                           <h3 className="text-xl font-bold text-indigo-700 mb-2 group-hover:text-indigo-800 transition-colors">
+                                             {product.name}</h3>
                                            <p className="text-slate-600 mb-4 leading-relaxed">{product.description}</p>
                                            <Link
                                                to={`/product/${product.id}`}

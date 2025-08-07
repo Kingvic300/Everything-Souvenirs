@@ -26,20 +26,6 @@ export const HeroSection = () => {
                         </Link>
                    </div>
               </section>
-              <div className="max-w-4xl mx-auto">
-                   <div className="grid md:grid-cols-3 gap-2 text-center text-sm font-medium">
-                        <div className="bg-emerald-50 text-amber-700 py-2 px-3 border-l-2 border-emerald-300">
-                             💰 20% Off Orders Over ₦75,000 — <span className="font-semibold">Use Code: NAIRA20</span>
-                        </div>
-                        <div className="bg-blue-50 text-blue-700 py-2 px-3 border-l-2 border-blue-300">
-                             🚚 Free Delivery Across Nigeria for Orders Above ₦30,000!
-                        </div>
-                        <div className="bg-emerald-50 text-emerald-700 py-2 px-3 border-l-2 border-emerald-300">
-                             🎁 Get 15% Off Gift Bundles — <span className="font-semibold">Use Code: GIFTNG</span>
-                        </div>
-
-                   </div>
-              </div>
          </>
      )
 }
