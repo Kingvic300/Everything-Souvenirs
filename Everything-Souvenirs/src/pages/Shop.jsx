@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { FaQuoteLeft, FaPalette, FaShippingFast, FaAward, FaStar, FaHeart, FaEye } from 'react-icons/fa';
 import {categories, reviews} from "../libs/data.js";
 import Tshirt from "../assets/T-shirt.jpg"
+import { useNavigate } from 'react-router-dom';
 import powerBank from "../assets/powerBank.jpg"
+import TestimonialsSection from "../components/TestimonialsSection.jsx"
 import notebook from '../assets/notebook.jpg';
 import mug from '../assets/mug.jpg';
 import waterBottle from '../assets/water-bottle.jpg';
@@ -115,6 +117,7 @@ const products = [
 ];
 
 const Shop = () => {
+     const navigate = useNavigate();
      const [selectedCategory, setSelectedCategory] = useState('All');
      const [newsletterEmail, setNewsletterEmail] = useState('');
      const [newsletterName, setNewsletterName] = useState('');
@@ -142,6 +145,12 @@ const Shop = () => {
           console.log('Customizing order for:', product.name);
      };
 
+     const handleScrollToProcess = () => {
+          const processSection = navigate('/services#process');
+          if (processSection) {
+               processSection.scrollIntoView({ behavior: 'smooth' });
+          }
+     };
      return (
          <>
               {/* Hero Section */}
@@ -157,7 +166,10 @@ const Shop = () => {
                              <button className="bg-emerald-500 hover:bg-emerald-700 text-indigo-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
                                   Request Custom Quote
                              </button>
-                             <button className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200">
+                             <button 
+                             className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200"
+                             onClick={handleScrollToProcess}
+                             >
                                   View Our Process
                              </button>
                         </div>
@@ -337,51 +349,8 @@ const Shop = () => {
                    </section>
 
                    {/* Customer Reviews */}
-
-                   <section className="py-20 px-6 bg-white">
-                        <div className="max-w-7xl mx-auto">
-                             {/* Section Header */}
-                             <div className="text-center mb-16">
-                                  <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-                                       What Our Clients Say
-                                  </h2>
-                                  <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                                       Trusted by hundreds of businesses for their branded gift needs
-                                  </p>
-                             </div>
-
-                             {/* Reviews Grid */}
-                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                  {reviews.map((review) => (
-                                      <div
-                                          key={review.id}
-                                          className="bg-slate-50 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-                                      >
-                                           {/* Name & Company */}
-                                           <div className="mb-4">
-                                                <h4 className="font-bold text-slate-900 text-lg">{review.name}</h4>
-                                                <p className="text-sm text-slate-600">{review.company}</p>
-                                           </div>
-
-                                           {/* Star Rating */}
-                                           <div className="flex items-center mb-4">
-                                                {[...Array(review.rating)].map((_, i) => (
-                                                    <FaStar key={i} className="text-indigo-400" />
-                                                ))}
-                                           </div>
-
-                                           {/* Review Text */}
-                                           <p className="text-slate-700 leading-relaxed mb-4">"{review.text}"</p>
-
-                                           {/* Date */}
-                                           <p className="text-xs text-slate-500">{review.date}</p>
-                                      </div>
-                                  ))}
-                             </div>
-                        </div>
-                   </section>
-
-
+                   <TestimonialsSection/>
+               
                    {/* Call to Action */}
                    <section className="bg-gradient-to-br from-indigo-700 via-indigo-800 to-indigo-900 text-white py-20 px-6">
                         <div className="max-w-4xl mx-auto text-center">

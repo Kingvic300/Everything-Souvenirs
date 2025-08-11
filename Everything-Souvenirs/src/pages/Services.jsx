@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 const services = [
   {
@@ -115,7 +117,19 @@ const testimonials = [
 ];
 
 const Services = () => {
+  const location = useLocation()
   const [selectedService, setSelectedService] = useState(null);
+    useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        // Delay a bit to ensure rendering is done
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -126,7 +140,6 @@ const Services = () => {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Replace with your actual WhatsApp phone number (with country code, no + or spaces)
   const WHATSAPP_NUMBER = "2347053531269";
 
   const handleInputChange = (e) => {
@@ -139,34 +152,29 @@ const Services = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // Create WhatsApp message
     const message = `*New Service Inquiry*
-
 *Name:* ${formData.name}
 *Email:* ${formData.email}
 *Phone:* ${formData.phone || 'Not provided'}
 *Company:* ${formData.company || 'Not provided'}
 *Service:* ${formData.service}
+*Project Details:* ${formData.message}
+--- Sent from Services Page`;
 
-*Project Details:*
-${formData.message}
-
----
-Sent from Services Page`;
-
-    // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(message);
-
-    // Create WhatsApp URL
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-
-    // Open WhatsApp in new tab
     window.open(whatsappURL, '_blank');
 
-    // Show success message
     setFormSubmitted(true);
     setFormData({ name: '', email: '', company: '', service: '', message: '', phone: '' });
     setTimeout(() => setFormSubmitted(false), 5000);
+  };
+
+  const scrollToProcess = () => {
+    const processSection = document.getElementById('process');
+    if (processSection) {
+      processSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -179,7 +187,10 @@ Sent from Services Page`;
           <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-indigo-100 mb-8">
             From custom branding to bulk orders, we provide comprehensive solutions for all your promotional merchandise needs. Let us help bring your brand to life.
           </p>
-          <button className="bg-emerald-400 hover:bg-emerald-500 text-emerald-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105">
+          <button 
+            onClick={scrollToProcess}
+            className="bg-emerald-400 hover:bg-emerald-500 text-emerald-900 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:shadow-xl transform hover:scale-105"
+          >
             Get Started Today
           </button>
         </div>
@@ -241,7 +252,7 @@ Sent from Services Page`;
         </section>
 
         {/* Our Process */}
-        <section className="py-20 px-6 bg-white">
+        <section id="process" className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Process</h2>
@@ -335,46 +346,7 @@ Sent from Services Page`;
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 px-6 bg-slate-100">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Client Testimonials</h2>
-              <p className="text-xl text-slate-600">
-                Don't just take our word for it - hear from our satisfied clients
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center mb-6">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-16 h-16 rounded-full mr-4"
-                    />
-                    <div>
-                      <h4 className="font-bold text-slate-900">{testimonial.name}</h4>
-                      <p className="text-slate-600 text-sm">{testimonial.company}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-
-                  <blockquote className="text-slate-700 italic leading-relaxed">
-                    "{testimonial.text}"
-                  </blockquote>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection/>
 
         {/* Contact Form / CTA */}
         <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-indigo-600 text-white">
@@ -395,7 +367,7 @@ Sent from Services Page`;
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Full Name *</label>
@@ -406,7 +378,6 @@ Sent from Services Page`;
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                       placeholder="Your full name"
-                      required
                     />
                   </div>
                   <div>
@@ -418,7 +389,6 @@ Sent from Services Page`;
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                       placeholder="your@email.com"
-                      required
                     />
                   </div>
                 </div>
@@ -454,7 +424,6 @@ Sent from Services Page`;
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    required
                     className="w-full appearance-none px-4 py-3 rounded-lg bg-black/10 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 hover:bg-black/20 transition duration-200"
                   >
                     <option value="" className="bg-white text-black">Select a service</option>
@@ -474,16 +443,15 @@ Sent from Services Page`;
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    rows="4"
+                    rows={4}
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                     placeholder="Tell us about your project, timeline, quantity needed, and any specific requirements..."
-                    required
                   ></textarea>
                 </div>
 
                 <div className="text-center">
                   <button
-                    type="submit"
+                    onClick={handleFormSubmit}
                     className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center justify-center mx-auto gap-3"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -495,7 +463,7 @@ Sent from Services Page`;
                     This will open WhatsApp with your message ready to send
                   </p>
                 </div>
-              </form>
+              </div>
             )}
           </div>
         </section>
