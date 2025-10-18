@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { X, Maximize2 } from "lucide-react";
 
-const ImagePreview = ({ selectedImage, onClose, altText = "Image preview" }) => {
+const ImagePreview = ({ selectedImage, onClose, altText = "Image preview", maxWidth = "90vw", maxHeight = "85vh" }) => {
     useEffect(() => {
         document.body.style.overflow = selectedImage ? "hidden" : "";
         return () => {
@@ -39,7 +39,8 @@ const ImagePreview = ({ selectedImage, onClose, altText = "Image preview" }) => 
                 <img
                     src={selectedImage}
                     alt={altText}
-                    className="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-slate-700 transition-transform duration-300"
+                    style={{ maxWidth, maxHeight }}
+                    className="object-contain rounded-2xl shadow-2xl border border-slate-700 transition-transform duration-300"
                 />
             </div>
         </div>

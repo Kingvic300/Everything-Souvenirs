@@ -1,122 +1,11 @@
 import React, { useState } from 'react';
 import { FaQuoteLeft, FaPalette, FaShippingFast, FaAward, FaStar, FaHeart, FaEye } from 'react-icons/fa';
 import { Maximize2 } from "lucide-react";
-import {categories, reviews} from "../libs/data.js";
-import Tshirt from "../assets/T-shirt.jpg"
+import {categories} from "../libs/data.js";
+import { products } from "../libs/productsData.js";
 import { useNavigate } from 'react-router-dom';
-import powerBank from "../assets/powerBank.jpg"
 import TestimonialsSection from "../components/TestimonialsSection.jsx"
-import notebook from '../assets/notebook.jpg';
-import mug from '../assets/mug.jpg';
-import waterBottle from '../assets/water-bottle.jpg';
-import tote from '../assets/tote.jpg';
-import cap from "../assets/cap.avif"
 import ImagePreview from "../components/ImagePreview.jsx";
-
-const flashLink = "https://images.unsplash.com/photo-1642084962115-61172e7f8b40?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8VVNCJTIwRmxhc2glMjBEcml2ZXxlbnwwfHwwfHx8MA%3D%3D"
-const keyChainLink = "https://www.brandedgifts.ng/wp-content/uploads/2023/04/branded-metallic-keyholder-with-opener-400x400.jpg"
-
-const products = [
-    {
-        id: 1,
-        name: 'Branded T-Shirt',
-        basePrice: '₦3,500',
-        image: Tshirt,
-        category: 'Apparel',
-        description: 'Premium cotton t-shirt with custom branding',
-        customizationOptions: ['Screen Printing', 'Embroidery', 'Heat Transfer'],
-        minOrder: 50,
-        leadTime: '7-10 days'
-    },
-    {
-        id: 2,
-        name: 'Custom Mug',
-        basePrice: '₦3,000',
-        image: mug,
-        category: 'Drinkware',
-        description: 'Ceramic mug perfect for office branding',
-        customizationOptions: ['Logo Printing', 'Color Customization', 'Text Engraving'],
-        minOrder: 25,
-        leadTime: '5-7 days'
-    },
-    {
-        id: 3,
-        name: 'Key Holder',
-        basePrice: '₦1,500',
-        image: keyChainLink,
-        category: 'Accessories',
-        description: 'Durable key holder with logo engraving',
-        customizationOptions: ['Laser Engraving', 'Color Options', 'Shape Customization'],
-        minOrder: 100,
-        leadTime: '3-5 days'
-    },
-    {
-        id: 4,
-        name: 'Custom Cap',
-        basePrice: '₦5,000',
-        image: cap,
-        category: 'Apparel',
-        description: 'Adjustable cap with embroidered logo',
-        customizationOptions: ['Embroidery', 'Patch Application', 'Color Selection'],
-        minOrder: 30,
-        leadTime: '7-10 days'
-    },
-    {
-        id: 5,
-        name: 'Branded Notebook',
-        basePrice: '₦4,000',
-        image: notebook,
-        category: 'Office',
-        description: 'Professional notebook for corporate gifts',
-        customizationOptions: ['Cover Printing', 'Foil Stamping', 'Custom Pages'],
-        minOrder: 50,
-        leadTime: '5-7 days'
-    },
-    {
-        id: 6,
-        name: 'USB Flash Drive',
-        basePrice: '₦6,000',
-        image: flashLink,
-        category: 'Tech',
-        description: '16GB USB drive with custom logo',
-        customizationOptions: ['Laser Engraving', 'Color Options', 'Custom Shape'],
-        minOrder: 25,
-        leadTime: '7-10 days'
-    },
-    {
-        id: 7,
-        name: 'Tote Bag',
-        basePrice: '₦8,000',
-        image: tote,
-        category: 'Bags',
-        description: 'Eco-friendly tote bag with custom printing',
-        customizationOptions: ['Screen Printing', 'Heat Transfer', 'Embroidery'],
-        minOrder: 50,
-        leadTime: '7-10 days'
-    },
-    {
-        id: 8,
-        name: 'Water Bottle',
-        basePrice: '₦5,500',
-        image: waterBottle,
-        category: 'Drinkware',
-        description: 'Stainless steel water bottle with logo',
-        customizationOptions: ['Laser Engraving', 'Color Options', 'Custom Labels'],
-        minOrder: 25,
-        leadTime: '5-7 days'
-    },
-    {
-        id: 9,
-        name: 'Power Bank',
-        basePrice: '₦12,000',
-        image: powerBank,
-        category: 'Tech',
-        description: 'High-capacity power bank with branding',
-        customizationOptions: ['Logo Printing', 'Color Selection', 'Custom Packaging'],
-        minOrder: 20,
-        leadTime: '10-14 days'
-    },
-];
 
 const Shop = () => {
     const navigate = useNavigate();
@@ -223,7 +112,9 @@ const Shop = () => {
                                     }`}
                                 >
                                     <div className="text-center">
-                                        <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                                        <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300 text-indigo-600">
+                                            <category.icon className="inline-block" />
+                                        </div>
                                         <h3 className="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">{category.name}</h3>
                                         <p className="text-sm text-slate-600 mb-3">{category.description}</p>
                                         <span className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold">

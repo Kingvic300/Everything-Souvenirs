@@ -6,7 +6,8 @@ import {
      FaLinkedinIn,
      FaHandshake,
      FaBullseye,
-     FaHeart, FaRocket, FaLaptop, FaAward, FaGlobeAfrica, FaSmile, FaComments, FaMapMarkerAlt, FaPhone, FaEnvelope
+     FaHeart, FaRocket, FaLaptop, FaAward, FaGlobeAfrica, FaSmile, FaComments, FaMapMarkerAlt, FaPhone, FaEnvelope,
+     FaTshirt, FaMugHot, FaPen, FaBriefcase, FaKey
 } from 'react-icons/fa';
 import notebook from '../assets/notebook.jpg';
 import mug from '../assets/mug.jpg';
@@ -132,13 +133,15 @@ export const socialLinks = [
      { name: 'Instagram', href: 'https://www.instagram.com/everythingsouvenirsandgifts?igsh=MW8zbmU3NWJjNWpmZQ==', icon: FaInstagram, color: 'text-pink-500' },
      { name: 'LinkedIn', href: 'https://linkedin.com', icon: FaLinkedin, color: 'text-blue-700' },
 ];
+
 export const categories = [
-     { name: 'Apparel', icon: '👕', count: 15, description: 'T-shirts, caps, and clothing' },
-     { name: 'Drinkware', icon: '☕', count: 10, description: 'Mugs, bottles, and tumblers' },
-     { name: 'Tech', icon: '💻', count: 18, description: 'USB drives, power banks, accessories' },
-     { name: 'Office', icon: '📝', count: 22, description: 'Notebooks, pens, desk accessories' },
-     { name: 'Bags', icon: '🎒', count: 12, description: 'Tote bags, backpacks, pouches' },
-     { name: 'Accessories', icon: '🔑', count: 20, description: 'Keychains, lanyards, badges' },
+     { name: 'All', icon: FaBriefcase, count: 97, description: 'View all products' },
+     { name: 'Apparel', icon: FaTshirt, count: 15, description: 'T-shirts, caps, and clothing' },
+     { name: 'Drinkware', icon: FaMugHot, count: 10, description: 'Mugs, bottles, and tumblers' },
+     { name: 'Tech', icon: FaLaptop, count: 18, description: 'USB drives, power banks, accessories' },
+     { name: 'Office', icon: FaPen, count: 22, description: 'Notebooks, pens, desk accessories' },
+     { name: 'Bags', icon: FaBriefcase, count: 12, description: 'Tote bags, backpacks, pouches' },
+     { name: 'Accessories', icon: FaKey, count: 20, description: 'Keychains, lanyards, badges' },
 ];
 
 
