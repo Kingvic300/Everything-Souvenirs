@@ -48,21 +48,6 @@ const Header = () => {
                         {/* Desktop Buttons */}
                         <div className="hidden md:flex items-center space-x-3">
                              <Link
-                                 to="/signin"
-                                 className="border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg font-medium
-                         hover:bg-indigo-50 active:scale-95 transition duration-150 ease-in-out transform"
-                             >
-                                  Sign In
-                             </Link>
-                             <Link
-                                 to="/signup"
-                                 className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium
-                         hover:bg-indigo-700 active:bg-indigo-800 active:scale-95
-                         transition duration-150 ease-in-out transform"
-                             >
-                                  Sign Up
-                             </Link>
-                             <Link
                                  to="/quote"
                                  className="bg-emerald-500 text-indigo-900 px-6 py-2 rounded-lg font-semibold
                          hover:bg-emerald-600 active:bg-emerald-700 active:scale-95

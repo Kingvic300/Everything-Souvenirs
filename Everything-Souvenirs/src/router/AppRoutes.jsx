@@ -23,8 +23,7 @@ const NotFound = lazy(() => import("../reusable/NotFound.jsx"));
 const Quotes = lazy(() => import("../pages/Quote.jsx"));
 const Services = lazy(() => import("../pages/Services.jsx"));
 const About = lazy(() => import("../pages/AboutUs.jsx"));
-const SignIn = lazy(() => import("../pages/SignInPage.jsx"));
-const SignUp = lazy(() => import("../pages/SignUpPage.jsx"));
+
 
 const AppRoutes = createBrowserRouter([
      {
@@ -54,14 +53,6 @@ const AppRoutes = createBrowserRouter([
      {
           path: "/about",
           element: withSuspense(About)
-     },
-     {
-          path: "/signin",
-          element: withSuspense(SignIn, false)
-     },
-     {
-          path: "/signup",
-          element: withSuspense(SignUp, false)
      },
      {
           path: "*",

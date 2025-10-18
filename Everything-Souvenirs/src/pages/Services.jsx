@@ -1,119 +1,125 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import {
+    Palette,
+    Package,
+    Settings2,
+    Lightbulb,
+    ShieldCheck,
+    Truck,
+    MessageSquare,
+    FileText,
+    Factory,
+    SearchCheck,
+    Monitor,
+    HeartPulse,
+    GraduationCap,
+    Banknote,
+    ShoppingBag,
+    HandHeart,
+    Smile,
+    PackageCheck,
+    Star,
+    Headphones
+} from "lucide-react";
+
 import TestimonialsSection from '../components/TestimonialsSection';
 
+// 1. Update the services array with Lucide icons
 const services = [
-  {
-    id: 1,
-    icon: "🎨",
-    title: "Custom Branding & Design",
-    description: "Professional logo design, brand guidelines, and marketing materials tailored to your business identity.",
-    features: ["Logo Design", "Brand Guidelines", "Marketing Materials", "Brand Strategy"]
-  },
-  {
-    id: 2,
-    icon: "📦",
-    title: "Bulk Order Management",
-    description: "Efficient handling of large quantity orders with special pricing and dedicated project management.",
-    features: ["Volume Pricing", "Project Management", "Inventory Planning", "Timely Delivery"]
-  },
-  {
-    id: 3,
-    icon: "⚙️",
-    title: "Product Customization",
-    description: "Personalize products with your brand elements using various printing and engraving techniques.",
-    features: ["Screen Printing", "Embroidery", "Laser Engraving", "Heat Transfer"]
-  },
-  {
-    id: 4,
-    icon: "💡",
-    title: "Design Consultation",
-    description: "Expert advice on product selection, design optimization, and brand strategy from our experienced team.",
-    features: ["Product Selection", "Design Review", "Brand Strategy", "Trend Insights"]
-  },
-  {
-    id: 5,
-    icon: "✅",
-    title: "Quality Assurance",
-    description: "Rigorous quality control processes to ensure every product meets our high standards before delivery.",
-    features: ["Quality Control", "Material Testing", "Print Inspection", "Final Review"]
-  },
-  {
-    id: 6,
-    icon: "🚚",
-    title: "Fast Delivery & Logistics",
-    description: "Reliable shipping and logistics solutions to get your branded merchandise delivered on time.",
-    features: ["Express Shipping", "Tracking System", "Packaging", "Nationwide Delivery"]
-  }
+    {
+        id: 1,
+        icon: <Palette className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Custom Branding & Design",
+        description: "Professional logo design, brand guidelines, and marketing materials tailored to your business identity.",
+        features: ["Logo Design", "Brand Guidelines", "Marketing Materials", "Brand Strategy"]
+    },
+    {
+        id: 2,
+        icon: <Package className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Bulk Order Management",
+        description: "Efficient handling of large quantity orders with special pricing and dedicated project management.",
+        features: ["Volume Pricing", "Project Management", "Inventory Planning", "Timely Delivery"]
+    },
+    {
+        id: 3,
+        icon: <Settings2 className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Product Customization",
+        description: "Personalize products with your brand elements using various printing and engraving techniques.",
+        features: ["Screen Printing", "Embroidery", "Laser Engraving", "Heat Transfer"]
+    },
+    {
+        id: 4,
+        icon: <Lightbulb className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Design Consultation",
+        description: "Expert advice on product selection, design optimization, and brand strategy from our experienced team.",
+        features: ["Product Selection", "Design Review", "Brand Strategy", "Trend Insights"]
+    },
+    {
+        id: 5,
+        icon: <ShieldCheck className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Quality Assurance",
+        description: "Rigorous quality control processes to ensure every product meets our high standards before delivery.",
+        features: ["Quality Control", "Material Testing", "Print Inspection", "Final Review"]
+    },
+    {
+        id: 6,
+        icon: <Truck className="w-12 h-12 text-indigo-600 mx-auto" />,
+        title: "Fast Delivery & Logistics",
+        description: "Reliable shipping and logistics solutions to get your branded merchandise delivered on time.",
+        features: ["Express Shipping", "Tracking System", "Packaging", "Nationwide Delivery"]
+    }
 ];
 
+// 2. Update the process steps with Lucide icons
 const processSteps = [
-  {
-    step: 1,
-    title: "Consultation",
-    description: "We discuss your needs, budget, and timeline to understand your project requirements.",
-    icon: "💬"
-  },
-  {
-    step: 2,
-    title: "Design & Quote",
-    description: "Our team creates mockups and provides detailed pricing for your approval.",
-    icon: "📋"
-  },
-  {
-    step: 3,
-    title: "Production",
-    description: "We manufacture your products with careful attention to quality and detail.",
-    icon: "🏭"
-  },
-  {
-    step: 4,
-    title: "Quality Check",
-    description: "Every item undergoes thorough inspection to ensure it meets our standards.",
-    icon: "🔍"
-  },
-  {
-    step: 5,
-    title: "Delivery",
-    description: "Your branded merchandise is carefully packaged and delivered to your location.",
-    icon: "📦"
-  }
+    {
+        step: 1,
+        title: "Consultation",
+        description: "We discuss your needs, budget, and timeline to understand your project requirements.",
+        icon: <MessageSquare className="w-10 h-10 text-indigo-600" />
+    },
+    {
+        step: 2,
+        title: "Design & Quote",
+        description: "Our team creates mockups and provides detailed pricing for your approval.",
+        icon: <FileText className="w-10 h-10 text-indigo-600" />
+    },
+    {
+        step: 3,
+        title: "Production",
+        description: "We manufacture your products with careful attention to quality and detail.",
+        icon: <Factory className="w-10 h-10 text-indigo-600" />
+    },
+    {
+        step: 4,
+        title: "Quality Check",
+        description: "Every item undergoes thorough inspection to ensure it meets our standards.",
+        icon: <SearchCheck className="w-10 h-10 text-indigo-600" />
+    },
+    {
+        step: 5,
+        title: "Delivery",
+        description: "Your branded merchandise is carefully packaged and delivered to your location.",
+        icon: <Truck className="w-10 h-10 text-indigo-600" />
+    }
 ];
 
 const industries = [
-  { name: "Technology", icon: "💻", description: "Tech companies and startups" },
-  { name: "Healthcare", icon: "🏥", description: "Medical facilities and practices" },
-  { name: "Education", icon: "🎓", description: "Schools and universities" },
-  { name: "Finance", icon: "💰", description: "Banks and financial services" },
-  { name: "Retail", icon: "🛍️", description: "Stores and e-commerce" },
-  { name: "Non-Profit", icon: "❤️", description: "NGOs and charities" }
+    { name: "Technology", icon: <Monitor className="w-10 h-10 text-indigo-600 mx-auto" />, description: "Tech companies and startups" },
+    { name: "Healthcare", icon: <HeartPulse className="w-10 h-10 text-indigo-600 mx-auto" />, description: "Medical facilities and practices" },
+    { name: "Education", icon: <GraduationCap className="w-10 h-10 text-indigo-600 mx-auto" />, description: "Schools and universities" },
+    { name: "Finance", icon: <Banknote className="w-10 h-10 text-indigo-600 mx-auto" />, description: "Banks and financial services" },
+    { name: "Retail", icon: <ShoppingBag className="w-10 h-10 text-indigo-600 mx-auto" />, description: "Stores and e-commerce" },
+    { name: "Non-Profit", icon: <HandHeart className="w-10 h-10 text-indigo-600 mx-auto" />, description: "NGOs and charities" }
 ];
 
-const testimonials = [
-  {
-    id: 1,
-    name: "David Okonkwo",
-    company: "TechStart Nigeria",
-    text: "Exceptional service and quality! They helped us create a cohesive brand identity across all our promotional materials. The team was professional and delivered on time.",
-    rating: 5,
-    avatar: "https://via.placeholder.com/80?text=DO"
-  },
-  {
-    id: 2,
-    name: "Amina Hassan",
-    company: "Green Earth Foundation",
-    text: "Working with them was a game-changer for our fundraising events. The custom tote bags and t-shirts were perfect and helped increase our brand visibility significantly.",
-    rating: 5,
-    avatar: "https://via.placeholder.com/80?text=AH"
-  },
-  {
-    id: 3,
-    name: "James Adebayo",
-    company: "Lagos Business Hub",
-    text: "Their bulk order management is outstanding. We needed 500 branded notebooks for our conference, and they delivered everything perfectly on schedule.",
-    rating: 5,
-    avatar: "https://via.placeholder.com/80?text=JA"
-  }
+// 4. Update the stats section with Lucide icons
+const stats = [
+    { number: "500+", label: "Happy Clients", icon: <Smile className="w-10 h-10 text-yellow-300 mx-auto" /> },
+    { number: "10,000+", label: "Products Delivered", icon: <PackageCheck className="w-10 h-10 text-yellow-300 mx-auto" /> },
+    { number: "99%", label: "Satisfaction Rate", icon: <Star className="w-10 h-10 text-yellow-300 mx-auto" /> },
+    { number: "24/7", label: "Customer Support", icon: <Headphones className="w-10 h-10 text-yellow-300 mx-auto" /> }
 ];
 
 const Services = () => {
@@ -302,20 +308,17 @@ const Services = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { number: "500+", label: "Happy Clients", icon: "😊" },
-                { number: "10,000+", label: "Products Delivered", icon: "📦" },
-                { number: "99%", label: "Satisfaction Rate", icon: "⭐" },
-                { number: "24/7", label: "Customer Support", icon: "🎧" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center bg-white/10 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300">
-                  <div className="text-5xl mb-4">{stat.icon}</div>
-                  <div className="text-4xl font-bold mb-2 text-yellow-300">{stat.number}</div>
-                  <div className="text-indigo-100 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {stats.map((stat, index) => (
+                      <div key={index} className="text-center bg-white/10 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300">
+                          <div className="flex justify-center mb-4">
+                              {stat.icon}
+                          </div>
+                          <div className="text-4xl font-bold mb-2 text-yellow-300">{stat.number}</div>
+                          <div className="text-indigo-100 font-medium">{stat.label}</div>
+                      </div>
+                  ))}
+              </div>
           </div>
         </section>
 
@@ -450,15 +453,13 @@ const Services = () => {
                 </div>
 
                 <div className="text-center">
-                  <button
-                    onClick={handleFormSubmit}
-                    className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center justify-center mx-auto gap-3"
-                  >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                    </svg>
-                    Send via WhatsApp
-                  </button>
+                    <button
+                        onClick={handleFormSubmit}
+                        className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center justify-center mx-auto gap-3"
+                    >
+                        <MessageSquare className="w-6 h-6" />
+                        Send via WhatsApp
+                    </button>
                   <p className="text-indigo-200 text-sm mt-3">
                     This will open WhatsApp with your message ready to send
                   </p>
